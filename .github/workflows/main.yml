@@ -1,12 +1,12 @@
 on: [push, workflow_dispatch]
 
 jobs:
-  publish:
+  publish-using-pages-action:
     runs-on: ubuntu-latest
     permissions:
       contents: read
       deployments: write
-    name: Publish to Cloudflare Pages
+    name: Publish to Cloudflare using pages action
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -28,3 +28,19 @@ jobs:
           branch: main
           # Optional: Change the Wrangler version, allows you to point to a specific version or a tag such as `beta`
           wranglerVersion: '3'
+  publish-using-wrangler-action:
+    runs-on: ubuntu-latest
+    name: Publish to Cloudflare using wrangler action
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      # Run a build step here if your project requires
+      - name: Build command
+        run: npx @cloudflare/next-on-pages@1
+        
+      - name: Deploy
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: pages deploy .vercel/output/static --project-name=demo-actions
