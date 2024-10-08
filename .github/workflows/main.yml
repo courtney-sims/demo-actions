@@ -53,8 +53,6 @@ jobs:
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           command: pages deploy .vercel/output/static --project-name=demo-actions
       - name: Outputs
-        run: |
-          echo "ID: ${{ steps.deploy.outputs.id }}"
-          echo "URL: ${{ steps.deploy.outputs.url }}"
-          echo "Environment: ${{ steps.deploy.outputs.environment }}"
-          echo "Alias: ${{ steps.deploy.outputs.alias }}"
+        env:
+          CMD_OUTPUT: ${{ steps.deploy.outputs.version-id }}
+        run: echo $CMD_OUTPUT
