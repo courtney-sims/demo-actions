@@ -27,7 +27,11 @@ jobs:
           # By default this will be the branch which triggered this workflow
           branch: main
           # Optional: Change the Wrangler version, allows you to point to a specific version or a tag such as `beta`
-          wranglerVersion: '3'
+          wranglerVersion: "3"
+      - name: print wrangler command output
+        env:
+          CMD_OUTPUT: ${{ steps.deploy.outputs.environment }}
+        run: echo $CMD_OUTPUT
   publish-using-wrangler-action:
     runs-on: ubuntu-latest
     name: Publish to Cloudflare using wrangler action
@@ -37,7 +41,7 @@ jobs:
       # Run a build step here if your project requires
       - name: Build command
         run: npx @cloudflare/next-on-pages@1
-        
+
       - name: Deploy
         uses: cloudflare/wrangler-action@v3.8.0
         with:
