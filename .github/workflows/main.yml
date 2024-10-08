@@ -30,7 +30,7 @@ jobs:
           wranglerVersion: "3"
       - name: print wrangler command output
         env:
-          CMD_OUTPUT: ${{ steps.deploy.outputs.environment }}
+          CMD_OUTPUT: ${{ steps.publish.outputs.environment }}
         run: echo $CMD_OUTPUT
   publish-using-wrangler-action:
     runs-on: ubuntu-latest
