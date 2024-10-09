@@ -54,5 +54,5 @@ jobs:
           command: pages deploy .vercel/output/static --project-name=demo-actions
       - name: Outputs
         env:
-          CMD_OUTPUT: ${{ steps.deploy.outputs.test }}
+          CMD_OUTPUT: ${{ steps.deploy.outputs.version-id }}
         run: echo $CMD_OUTPUT
