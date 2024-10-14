@@ -54,7 +54,6 @@ jobs:
           command: pages deploy .vercel/output/static --project-name=demo-actions --branch=production
       - name: Outputs
         run: |
-          echo "Type": ${{ steps.deploy.outputs.type}}
           echo "ID: ${{ steps.deploy.outputs.id }}"
           echo "URL: ${{ steps.deploy.outputs.url }}"
           echo "Environment: ${{ steps.deploy.outputs.environment }}"
