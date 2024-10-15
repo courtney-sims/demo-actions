@@ -51,7 +51,6 @@ jobs:
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          wranglerVersion: "0.0.0-267cd25ca"
           command: pages deploy .vercel/output/static --project-name=demo-actions --branch=test
       - name: Outputs
         run: |
