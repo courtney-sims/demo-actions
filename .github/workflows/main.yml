@@ -52,7 +52,7 @@ jobs:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           wranglerVersion: "3.81.0"
-          command: pages deploy .vercel/output/static --project-name=demo-actions --branch=test
+          command: pages deploy .vercel/output/static --project-name=demo-actions
       - name: Outputs
         run: |
           echo "Type:" ${{ steps.deploy.outputs.type }}
