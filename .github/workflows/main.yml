@@ -59,4 +59,4 @@ jobs:
           echo "ID: ${{ steps.deploy.outputs.id }}"
           echo "URL: ${{ steps.deploy.outputs.url }}"
           echo "Environment: ${{ steps.deploy.outputs.environment }}"
-          echo "Alias: ${{ steps.publish.deploy.alias }}"
+          echo "Alias: ${{ steps.deploy.outputs.alias }}"
