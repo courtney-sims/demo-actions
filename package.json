@@ -27,7 +27,6 @@
     "eslint-config-next": "14.1.0",
     "eslint-plugin-next-on-pages": "^1.11.3",
     "typescript": "^5",
-    "vercel": "^34.2.0",
-    "wrangler": "^3.80.4"
+    "vercel": "^34.2.0"
   }
 }
