@@ -46,7 +46,7 @@ jobs:
         run: npx @cloudflare/next-on-pages@1
 
       - name: Deploy
-        uses: cloudflare/wrangler-action@banda-484-courtney
+        uses: cloudflare/wrangler-action
         id: deploy
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
